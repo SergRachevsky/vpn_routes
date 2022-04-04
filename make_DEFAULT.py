@@ -106,7 +106,7 @@ with open(fn_DEFAULT, 'w') as f:
   for domain in domains:
 
     if domain.strip(): 
-  
+
       print(f"* domain: '{domain}'")
       f.write(f"\n# {domain}\n")
 
