@@ -5,9 +5,9 @@ from datetime import datetime
 import dns.resolver
 from ipaddress import IPv4Network
 
-fn_domains_to_unblock = 'domains_to_unblock.txt'
-# fn_DEFAULT = 'DEFAULT'
-fn_DEFAULT = '/etc/openvpn/routes/DEFAULT'
+fn_domains_to_unblock = '/opt/git/vpn_routes/domains_to_unblock.txt'
+fn_DEFAULT = '/opt/git/vpn_routes/DEFAULT'
+#fn_DEFAULT = '/etc/openvpn/routes/DEFAULT'
 
 #------------------------------------------------------------
 # get_a_records()
@@ -79,6 +79,18 @@ def get_netblocks(domain):
 # main
 #==================================================================================
 
+# domain = "  ssd"
+# print(f"* domain: '{domain}'")
+
+# if domain.strip():
+#   print("1")
+# else:
+#   print("2")
+# exit()
+
+
+
+
 ts = datetime.now().strftime("%Y.%m.%d_%H-%M-%S")
 
 with open(fn_domains_to_unblock) as f:
@@ -93,18 +105,20 @@ if len(domains) > 0:
 with open(fn_DEFAULT, 'w') as f:
   for domain in domains:
 
-    print(f"* domain: {domain}")
-    f.write(f"\n# {domain}\n")
+    if domain.strip(): 
+  
+      print(f"* domain: '{domain}'")
+      f.write(f"\n# {domain}\n")
 
-    a_records = get_a_records(domain)
-    print(f"  - a_records: {a_records}")
-    for a_record in a_records:
-      f.write(f"push \"route {IPv4Network(a_record).network_address} {IPv4Network(a_record).netmask}\"\n")
+      a_records = get_a_records(domain)
+      print(f"  - a_records: {a_records}")
+      for a_record in a_records:
+        f.write(f"push \"route {IPv4Network(a_record).network_address} {IPv4Network(a_record).netmask}\"\n")
 
-    netblocks = get_netblocks(domain)
-    print(f"  - netblocks: {netblocks}")
-    for netblock in netblocks:
-      f.write(f"push \"route {IPv4Network(netblock).network_address} {IPv4Network(netblock).netmask}\"\n")
+      netblocks = get_netblocks(domain)
+      print(f"  - netblocks: {netblocks}")
+      for netblock in netblocks:
+        f.write(f"push \"route {IPv4Network(netblock).network_address} {IPv4Network(netblock).netmask}\"\n")
 
 
 exit()
