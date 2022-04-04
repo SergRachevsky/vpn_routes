@@ -9,5 +9,6 @@ www.pluralsight.com
 instagram.com
 www.instagram.com
 twitter.com
+api.twitter.com
 www.twitter.com
 strana.news
