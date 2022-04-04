@@ -4,3 +4,4 @@ rutracker.org
 meduza.io
 2ip.ru
 2ip.ua
+pluralsight.com
