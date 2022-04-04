@@ -5,3 +5,4 @@ meduza.io
 2ip.ru
 2ip.ua
 pluralsight.com
+www.pluralsight.com
