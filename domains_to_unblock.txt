@@ -6,3 +6,4 @@ meduza.io
 2ip.ua
 pluralsight.com
 www.pluralsight.com
+twitter.com
