@@ -13,3 +13,4 @@ api.twitter.com
 www.twitter.com
 strana.news
 tjournal.ru
+smartbear.com
