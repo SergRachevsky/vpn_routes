@@ -7,6 +7,7 @@ meduza.io
 pluralsight.com
 www.pluralsight.com
 instagram.com
+_spf.fb.com
 www.instagram.com
 twitter.com
 api.twitter.com
